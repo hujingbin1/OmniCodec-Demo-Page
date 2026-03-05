@@ -1,3 +1,2 @@
-# spark-tts
-This is demo page for Spark-TTS: An Efficient LLM-Based Text-to-Speech Model with Single-Stream Decoupled Speech Tokens
-
+# OmniCodec
+This is demo page for  OmniCodec: Low Frame Rate Universal Audio Codec with Semantic–Acoustic Disentanglement.
