@@ -1,45 +1,718 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="generator" content="Hugo 0.88.1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="css/normalize.css">
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>OmniCodec</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>OmniCodec</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .main-card {
+            margin-top: 48px;
+            margin-bottom: 48px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 48px 40px;
+        }
+
+        .title-block h2 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .title-block h3 {
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            margin-top: 36px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .highlight-list {
+            margin-top: 12px;
+            margin-bottom: 24px;
+        }
+
+        .highlight-list li {
+            margin-bottom: 8px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table.audio-table {
+            width: max-content;
+            background: #fff;
+            border-collapse: collapse;
+        }
+
+        table.audio-table th,
+        table.audio-table td {
+            border: 1px solid #ddd;
+            padding: 14px 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        table.audio-table th {
+            background: #f0f3f7;
+            font-weight: 700;
+        }
+
+        table.audio-table td:first-child,
+        table.audio-table th:first-child {
+            width: 140px;
+            font-weight: 700;
+        }
+
+        audio {
+            width: 180px;
+            max-width: 100%;
+        }
+
+        .note-text {
+            margin-top: 14px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-text {
+            margin-top: 28px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-card {
+                padding: 28px 18px;
+            }
+
+            .title-block h2 {
+                font-size: 28px;
+            }
+
+            .title-block h3 {
+                font-size: 20px;
+            }
+
+            audio {
+                width: 150px;
+            }
+        }
+    </style>
 </head>
 
+<body>
+    <div class="container">
+        <main role="main">
+            <article itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="main-card">
+                    <div class="text-center title-block">
+                        <h2>OmniCodec</h2>
+                        <h3>Low Frame Rate Universal Audio Codec with Semantic–Acoustic Disentanglement</h3>
+                    </div>
 
-<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+                    <p class="intro-text">
+                        Large Language Models (LLMs) have advanced audio generation through discrete representation learning.
+                        However, most existing neural codecs focus on speech and emphasize reconstruction fidelity, overlooking
+                        unified low frame rate modeling across diverse audio domains, including speech, music, and general sound.
+                        Moreover, high reconstruction quality does not necessarily yield semantically informative representations,
+                        limiting effectiveness in downstream generation tasks. We propose OmniCodec, a universal neural audio codec
+                        tailored for low frame rate. It adopts a hierarchical multi-codebook design with semantic–acoustic decoupling
+                        by leveraging the audio encoder of the pre-trained understanding model, along with a self-guidance strategy
+                        to improve codebook utilization and reconstruction. Experiments show that OmniCodec achieves outstanding
+                        performance at the same bitrate, delivering superior reconstruction quality while also providing more
+                        semantically informative representations that benefit downstream generation tasks.
+                    </p>
 
-<div class="container" >
-<header role="banner">
-</header>
-<main role="main">
-<article itemscope itemtype="https://schema.org/BlogPosting">
+                    <!-- <h4 class="section-title">Highlights</h4>
+                    <ul class="highlight-list">
+                        <li>Low frame rate codec design for efficient audio representation.</li>
+                        <li>Unified modeling across speech, music, and general sound.</li>
+                        <li>Semantic–acoustic disentanglement using a pretrained audio encoder.</li>
+                        <li>Improved reconstruction quality and stronger semantic representations.</li>
+                    </ul> -->
 
-<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
-	<div class="text-center">
-	<h2>OmniCodec: </h2>
-      <h3>Low Frame Rate Universal Audio Codec with Semantic–Acoustic Disentanglement</h3>
+                    <hr>
 
-	</div>
+                    <h4 class="section-title text-center">Audio Reconstruction Comparison</h4>
+                    <p class="text-center intro-text">
+                        Comparison among OmniCodec, OmniCodec-F, XCodec, Mimi codec, UniCodec, AUV and WavTokenizer on representative samples from different audio domains.
+                    </p>
 
-	<p>
-		Large Language Models (LLMs) have advanced audio generation through discrete representation learning. However, most existing neural codecs focus on speech and emphasize reconstruction fidelity, overlooking unified low frame rate modeling across diverse audio domains, including speech, music, and general sound. Moreover, high reconstruction quality does not necessarily yield semantically informative representations, limiting effectiveness in downstream generation tasks. We propose OmniCodec, a universal neural audio codec tailored for low frame rate. It adopts a hierarchical multi-codebook design with semantic–acoustic decoupling by leveraging the audio encoder of the pre-trained understanding model, along with a self-guidance strategy to improve codebook utilization and reconstruction. Experiments show that OmniCodec achieves outstanding performance at the same bitrate, delivering superior reconstruction quality while also providing more semantically informative representations that benefit downstream generation tasks.
-	</p>
+                    <div class="table-wrapper">
+                        <table class="audio-table">
+                            <thead>
+                                <tr>
+                                    <th>Sample</th>
+                                    <th>Original</th>
+                                    <th>OmniCodec-32L</th>
+                                    <th>XCodec-8L</th>
+                                    <th>OmniCodec-16L</th>
+                                    <th>Mimi codec-16L</th>
+                                    <th>OmniCodec-8L</th>
+                                    <th>UniCodec</th>
+                                    <th>OmniCodec-F-32L</th>
+                                    <th>AUV</th>
+                                    <th>OmniCodec-F-16L</th>
+                                    <th>WavTokenizer</th>
+                                </tr>
+                                <tr>
+                                    <th>Bitrate(bps)</th>
+                                    <th>------</th>
+                                    <th>4400</th>
+                                    <th>4000</th>
+                                    <th>2200</th>
+                                    <th>2200</th>
+                                    <th>1100</th>
+                                    <th>1050</th>
+                                    <th>2200</th>
+                                    <th>716</th>
+                                    <th>1100</th>
+                                    <th>480</th>
+                                </tr>
+                                <tr>
+                                    <th>TPS</th>
+                                    <th>------</th>
+                                    <th>12.5*32</th>
+                                    <th>50*8</th>
+                                    <th>12.5*16</th>
+                                    <th>12.5*16</th>
+                                    <th>12.5*8</th>
+                                    <th>75</th>
+                                    <th>6.25*32</th>
+                                    <th>50</th>
+                                    <th>6.25*16</th>
+                                    <th>40</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Speech 1</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/GT/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/32L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/XCodec/8L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/16L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/MimiCodec/16L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/8L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/UniCodec/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/32L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/AUV/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/16L/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/WavTokenizer/speech/61-70968-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    
+                                </tr>
 
-</div>
+                                <tr>
+                                    <td>Speech 2</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/GT/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/32L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/XCodec/8L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/16L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/MimiCodec/16L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/8L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/UniCodec/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/32L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/AUV/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/16L/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/WavTokenizer/speech/61-70968-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    
+                                </tr>
 
-</article>
-</main>
-</div>
+                                <tr>
+                                    <td>Speech 3</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/GT/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/32L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/XCodec/8L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/16L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/MimiCodec/16L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/8L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/UniCodec/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/32L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/AUV/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/16L/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/WavTokenizer/speech/121-121726-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    
+                                </tr>
 
+                                <tr>
+                                    <td>Speech 4</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/GT/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/32L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/XCodec/8L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/16L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/MimiCodec/16L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/8L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/UniCodec/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/32L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/AUV/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/16L/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/WavTokenizer/speech/121-121726-0001.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    
+                                </tr>
+
+                                <tr>
+                                    <td>Speech 5</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/GT/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/32L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/XCodec/8L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/16L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/MimiCodec/16L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec/8L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/UniCodec/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/32L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/AUV/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/OmniCodec-F/16L/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/WavTokenizer/speech/1089-134686-0000.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>Music 1</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/original/music1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/omnicodec/music1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/xcodec/music1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/unicodec/music1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/mimicodec/music1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Music 2</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/original/music2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/omnicodec/music2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/xcodec/music2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/unicodec/music2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/mimicodec/music2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sound 1</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/original/sound1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/omnicodec/sound1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/xcodec/sound1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/unicodec/sound1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/mimicodec/sound1.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sound 2</td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/original/sound2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/omnicodec/sound2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/xcodec/sound2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/unicodec/sound2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls preload="none">
+                                            <source src="audio/mimicodec/sound2.wav" type="audio/wav">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="note-text">
+                        Note: Please replace the file paths with your actual demo audio files. The current paths assume a local directory structure under <code>audio/</code>.
+                    </p>
+
+                    <div class="footer-text">
+                        OmniCodec Demo Page
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
 </body>
 </html>
