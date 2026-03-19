@@ -1632,8 +1632,539 @@
     
                         <div class="figure-card text-center" id="semantic-disentanglement-examples">
                             <h4 class="section-title text-center">Semantic–Acoustic Disentanglement Study</h4>
+                             <p class="text-center intro-text">
+                                By comparing the audio generated after the first decoder layer across different models, we can directly observe whether the model preserves stable semantic information in the early stage while reducing entanglement with timbre and acoustic details, thereby reflecting its semantic disentanglement capability.
+                                We compare the audio reconstructed from only the first layer and from the first two layers of OmniCodec and Mimi codec, in order to examine how semantic and acoustic information is progressively preserved and disentangled across layers.
+                            </p>
+                            <div class="table-wrapper">
+                                <table class="audio-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Models</th>
+                                            <th>Ground Truth</th>
+                                            <th>OmniCodec-1L</th>
+                                            <th>Mimi codec-1L</th>
+                                            <th>OmniCodec-2L</th>
+                                            <th>Mimi codec-2L</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Speech 1</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0000.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0000.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0000.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0000.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0000.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 2</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0001.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0001.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0001.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0001.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0001.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 3</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0002.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0002.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0002.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0002.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0002.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 4</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0003.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0003.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0003.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0003.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0003.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>Speech 5</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0004.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0004.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0004.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0004.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0004.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 6</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0005.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0005.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0005.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0005.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0005.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 7</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0006.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0006.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0006.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0006.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0006.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 8</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0007.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0007.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0007.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0007.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0007.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 9</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0008.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0008.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0008.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0008.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0008.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Speech 10</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/121-121726-0009.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/121-121726-0009.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/121-121726-0009.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/121-121726-0009.flac" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/121-121726-0009.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                         <tr>
+                                            <td>Music 1</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/blues.00012.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/blues.00012.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/blues.00012.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/blues.00012.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/blues.00012.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                         <tr>
+                                            <td>Music 2</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/blues.00013.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/blues.00013.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/blues.00013.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/blues.00013.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/blues.00013.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                         <tr>
+                                            <td>Music 3</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/blues.00014.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/blues.00014.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/blues.00014.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/blues.00014.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/blues.00014.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                         <tr>
+                                            <td>Music 4</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/blues.00015.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/blues.00015.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/blues.00015.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/blues.00015.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/blues.00015.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+
+                                         <tr>
+                                            <td>Music 5</td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/gt/blues.00016.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/1L/blues.00016.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/1L/blues.00016.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/omnicodec/2L/blues.00016.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                            <td>
+                                                <audio controls preload="none">
+                                                    <source src="audio/semantic/mimicodec/2L/blues.00016.wav" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        
+
+
                         <div class="figure-card text-center" id="ablation-study">
                             <h4 class="section-title text-center">Ablation Study</h4>
                         </div>
